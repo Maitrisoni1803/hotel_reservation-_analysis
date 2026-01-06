@@ -1,8 +1,17 @@
-# Hotel-Reservation-Analysis-with-SQL
+# Hotel-Reservation-Analysis-with-SQL/PostgreSQL
 
 ## Overview
 
-This project showcases an analysis of a hotel reservation dataset using SQL. The dataset provides insights into guest preferences, booking trends, and operational factors crucial for the hotel industry. Each SQL query is designed to answer specific questions about the dataset, enabling deeper understanding and actionable insights.
+This project focuses on analyzing hotel reservation data using PostgreSQL.
+The goal is to extract meaningful insights related to booking trends, customer behavior, pricing patterns, and market segmentation using SQL queries.
+
+The dataset was initially imported from a CSV file into PostgreSQL using a TEXT-based staging table to ensure all rows were successfully loaded. Since PostgreSQL enforces strict data typing, explicit casting was applied during analysis for numeric and date operations.
+
+🛠 **Tools & Technologies**
+Database: PostgreSQL
+Client Tool: pgAdmin
+Language: SQL
+Dataset Type: CSV (Hotel Reservation Data)
 
 ## Dataset Details
 
@@ -20,6 +29,11 @@ The dataset includes the following columns:
 - **market_segment_type:** The market segment to which the reservation belongs.
 - **avg_price_per_room:** The average price per room in the reservation.
 - **booking_status:** The status of the booking.
+
+ **Data Import Strategy**
+-The CSV file was imported into PostgreSQL using TEXT columns to prevent row rejection due to format issues.
+-PostgreSQL does not automatically convert text to numeric or date types.
+-Explicit casting (::INT, ::NUMERIC, TO_DATE) was used in analytical queries.
 
 ## problem statements
 
@@ -40,3 +54,8 @@ Tasked with analyzing this hotel reservation dataset using SQL. Here are 15 ques
 13. What is the average number of nights (both weekend and weekday) spent by guests for each room type?
 14. For reservations involving children, what is the most common room type, and what is the average price for that room type?
 15. Find the market segment type that generates the highest average price per room.
+
+    ⚠️ **Challenges Faced**
+-CSV date format inconsistencies
+-PostgreSQL strict typing caused errors when using aggregate functions on text columns
+-Resolved by using explicit type casting and date conversion functions
